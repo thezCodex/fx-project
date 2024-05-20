@@ -7,6 +7,7 @@
     box-sizing: border-box;
     text-decoration: none;
     border: none;
+    outline: none;
     scroll-behavior: smooth;
 }
 
@@ -15,31 +16,32 @@
     --text-color:#f1f1f1;
     --bg--color: rgb(17, 16, 16);
 }
-body,
+
 html{
     background:rgb(17, 16, 16);
-    width: 1440px;
-    margin: 0;
-    padding: 0;
-
+    width: 1440px;    
+    font-size: 62.5%;
 }
 .header{
     position: fixed;
     top: 0;
     left: 0;
-    width: 1440px;
+    width: 100%;
     padding: 2rem  9%;
     background: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 100;
-    background-color: var(--bg--color)
+    background-color: var(--bg--color);
+}
+body{
+    max-width: 1440px;
 }
 .logo{
     position: relative;
     font-family:Rubik,sans-serif;
-    font-size: 14px;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 32.4px;
     text-align: left;
@@ -50,14 +52,14 @@ html{
     position: relative;
 }
 .nav-bar a {
-    font-size: .7rem;
+    font-size: 1rem;
     color: #fff;
     padding-left: 2rem;
     font-family: Rubik,sans-serif;
 }
 
 .signup-btn{
-    font-size: .7rem;
+    font-size: 1rem;
     position: relative;
     color: #fff;
     cursor: pointer;
@@ -66,28 +68,28 @@ html{
 
 section{
     min-height: 100vh;
-    padding: 10rem ;
+    padding: 10rem 0 10rem 10rem ;
+    width: 100%;
 }
 .home{
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr,1fr;
-    max-width: 1440px;
-
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: row;
 }
 .home-content{
-    max-width: 1440px;
+    flex: 1;
+    box-sizing: border-box;
 }
 
 .home-content h3{
     color: var(--ani-color);
-    font-size: .8rem;
+    font-size: 1.4rem;
     font-family: Rubik,sans-serif;
 }
 .home-content h4{
     position: relative;
     margin-top: 10px;
-    font-size: 3rem;
+    font-size: 7rem;
     color: var(--text-color);
     font-family: Rubik,sans-serif;
 }
@@ -98,7 +100,7 @@ section{
     margin-top: 30px;
     color: var(--text-color);
     max-width: 30rem;
-    font-size: .7rem;
+    font-size: 1.3em;
     font-weight: small;
     font-family: Rubik,sans-serif;
 }
@@ -117,36 +119,55 @@ section{
     color: black;
     font-weight: 700;
     background-color: var(--ani-color);
+    font-weight: bold;
+    font-size: 2rem;
 }
 .card-image-section{
-    position: absolute;
-    right: 0;
-    top: 16%;
+    flex: 1;
+    text-align: right;
 }
 .card-image{
-    height: 500px;
+    height: auto;
+    max-width: 100%;
+    display: block; /* Ensure proper rendering as a block element */
+    margin: 0; /* Remove any default margin */
+    padding: 0;
 }
 .log-sec{
-    width: 1440px;
     height: 216px;
     background-color: var(--ani-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 .log-sec img{
     padding: 50px;
+    box-sizing: border-box;
+}
+.ourservices-sec{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.ourservices-header {
+    grid-column: 1/2;
+    align-self: start;
+    padding: 20px;
+    text-align: left;
+
+
 }
 
 .ourservices-header h1{
     color: var(--ani-color);
-    font-size: .8rem;
+    font-size: 1.4rem;
     font-family: Rubik,sans-serif;
 }
 .ourservices-header h2{
     color: var(--text-color);
     font-weight: 700;
-    font-size: 48px;
+    font-size: 7rem;
     font-family: Rubik,sans-serif;
 }
 .ourservices-header span{
@@ -156,31 +177,43 @@ section{
     margin-top: 20px;
 }
 .account-grid {
-    max-width: 1440px;
-    display: grid;
-    grid-template-columns: 500px 1fr 1fr ;
+        display: grid;
+        grid-template-columns: auto repeat(2, 1fr);
+        box-sizing: border-box;
 
+}
+
+.account-grid .acc-box:nth-child(2) {
+    grid-column: 2/3;
+}
+.account-grid .acc-box:nth-child(3){
+    grid-column: 3/4;
+}
+.account-grid .acc-box:nth-child(4),
+.account-grid .acc-box:nth-child(5),
+.account-grid .acc-box:nth-child(6) {
+    grid-column: span 1;
 }
 .acc-box{
     position: relative;
     padding: 20px;
     border: .5px solid rgb(72, 68, 68);
-}
-.account-grid .acc-box{
-    width: 352px;
+    width: 300px;
     height: 454px;
 }
+
 .acc-box h1,
 .acc-box-loose h1{
     color: var(--text-color);
     margin: 5rem 0 30px 3rem;
     font-family: Rubik,sans-serif;
     font-weight: 400;
+    font-size: 2.5rem;
 }
 .acc-box p,
 .acc-box-loose p{
     color: var(--text-color);
-    font-size: 16px;
+    font-size: 1.3rem;
     margin: 0 0 30px 3rem;
     font-family: Rubik,sans-serif;
     font-weight: small;
@@ -195,27 +228,30 @@ section{
     padding: 20px;
     border: .5px solid rgb(72, 68, 68);
 }
+.service-sec,
 .benfit-sec{
-    position: relative;
+    width: 100%;
+    
 }
+
 
 .benefit-grid,
 .service-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
 }
 .benefit-text h1,
 .service-text h1{
     color: var(--ani-color);
-    font-size: .8rem;
+    font-size: 1.7rem;
     font-family: Rubik,sans-serif;
 }
 .benefit-text h2,
 .service-text h2{
     color: var(--text-color);
     font-weight: 700;
-    font-size: 48px;
+    font-size: 7rem;
     margin-top: 1rem;
     font-family: Rubik,sans-serif;
 }
@@ -226,14 +262,14 @@ section{
 .benefit-text h4,
 .service-text h3{
     color:var(--text-color);
-    font-size: 16px;
+    font-size:1.5rem;
     font-weight: 400;
     line-height: 24px;    margin-top: 30px;
     font-family: Rubik,sans-serif;
 }
 .benefit-sec p{
     color: var(--text-color);
-    font-size: 28px;
+    font-size:4.5rem;
     display: inline-block;
     margin: 50px 30px 0 0 ;
     font-family: Rubik,sans-serif;
@@ -244,8 +280,11 @@ section{
     font-weight: small;
 }
 .benefit-sec p .word{
-    font-size: 14px;
+    font-size: 1.5rem;
     font-weight: small;
+}
+.error-img{
+    height:100px;
 }
 .discription-grid{
     margin-top: 100px;
@@ -260,13 +299,13 @@ section{
 .discription-box p{
     color: var(--text-color);
     margin-top: 20px;
-    font-size: 32px;
+    font-size: 3rem;
     font-family: Rubik,sans-serif;
 }
 .discription-box h3{
     margin-top: 20px;
     color: var(--text-color);
-    font-size: 16px;
+    font-size: 1.5rem;
     font-weight: 400;
     font-family: Rubik,sans-serif;
     font-weight: 300;
@@ -287,7 +326,7 @@ section{
     background-position: center;
     background-repeat: no repeat;
     overflow: hidden;
-    width: 1440px;
+
 }
 .global-head{
     position: absolute;
@@ -295,11 +334,11 @@ section{
 
 }
 .global-head h1{
-    font-size:20px;
+    font-size:2rem;
     font-family: Rubik,sans-serif;
 }
 .global-head h2{
-    font-size: 72px;
+    font-size: 8rem;
     font-weight: 500;
     font-family: Rubik,sans-serif;
 }
@@ -357,7 +396,7 @@ section{
 }
 .conc h1{
     font-family: Satoshi;
-    font-size: 72px;
+    font-size: 9rem;
     font-weight: 700;
     margin-bottom: 40px;
     font-family: Rubik,sans-serif;
@@ -384,6 +423,7 @@ footer{
     margin-top: 20px;
     margin-bottom: 30px;
     font-family: Rubik,sans-serif;
+    font-size: 1.7rem;
 }
 .box-1 .social-media img{
     margin-right: 10px;
@@ -409,13 +449,14 @@ footer{
     color: var(--text-color);
     font-family: Rubik,sans-serif;
     font-weight: 200;
+    font-size: 2rem;
 }
 .box-4 h2,
 .box-3 h1,
 .box-2 h1,
 .box-1 a{
     font-weight: 400;
-    font-size:22px ;
+    font-size:3rem ;
     color:var(--text-color);
     margin-bottom: 20px;
     font-family: Rubik,sans-serif;
@@ -441,6 +482,7 @@ footer{
     margin-top: 50px;
     color: grey;
     font-family: Rubik,sans-serif;
+    font-size: 2rem;
 }
 .footer-conc{
     display: flex;
@@ -455,36 +497,111 @@ footer{
     color: var(--text-color);
     font-family: Rubik,sans-serif;
     font-weight: 300;
+    font-size: 1.2rem;
     
 }
 
 
 /* RESPONSIVE */
 
-@media only screen and (max-width: 1024px) {
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 77%;
+    }
+}
+@media (max-width: 1024px) {
     .signup-btn{
         display: none;
     }
+    .section{
+        padding: 0;
+    }
+    .card-image-section{
+        display: none;
+    }
+    .home{
+        text-align: center;
+        margin: auto;
+    }
+    .home-content p{
 
- }
-
-@media only screen and (max-width: 600px) {
-    .logo{
-        font-size: 20px;
-    }
-    .nav-bar a {
-        font-size: 20px;
-    }
-    .box-1 button{
-        margin-top: 20px;
-        padding: 1.5rem 1rem;
-        color: var(--bg--color);
-        background-color: var(--ani-color);
-        cursor: pointer;
-    }
-    .account-grid{
-        grid-template-columns: 1fr 1fr;
+        margin: auto;
     }
 }
+@media (max-width: 426px) {
+    html{
+        font-size: 100%;
+    }
+    .account-grid{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .ourservices-sec,
+    .benefit-sec{
+        display: flex;
+        flex-direction: column;
+    }
+    .ourservices-header,
+    .acc-box{
+        text-align: center;
 
-
+    }
+    .ourservices-header{
+        margin-bottom: 9rem;
+    }
+    .acc-box{
+        margin-bottom: 30px;
+        min-width: 70%;
+    }
+    .acc-box img{
+        text-align: center;
+        margin:50px 0;
+    }
+    .error-img{
+        display: none;
+    }
+    .discription-grid{
+        display: flex;
+        flex-direction: column;
+    }
+    .discription-box{
+        margin-bottom: 30px;
+        max-width: 50%;
+    }
+    .global{
+        display: flex;
+        flex-direction: column;
+    }
+    .global-head{
+        text-align: left;
+    }
+    .arrow-keys{
+        display: none;
+    }
+    .info-grid{
+        display:flex;
+        flex-direction: row;
+    }
+    .info-box{
+        animation: none
+    }
+    .footer-grid{
+        display: flex;
+        flex-direction: column;
+    }
+    .box-1,
+    .box-2,
+    .box-3,
+    .box-4{
+        margin-bottom: 40px;
+    }
+    .box-4 input {
+        width: 50%;
+        height: 100px
+    }
+    .box-4 button{
+        height: 100px;
+    }
+}
